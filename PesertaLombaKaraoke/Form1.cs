@@ -157,7 +157,18 @@ namespace PesertaLombaKaraoke
                     "Konfirmasi",
                     MessageBoxButtons.YesNo);
 
-                
+                if (result == DialogResult.Yes)
+                {
+                    string query = "DELETE FROM tb_peserta WHERE nomor_urut=@nomor";
+
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@nomor", txtNomorUrut.Text);
+
+                    cmd.ExecuteNonQuery();
+
+                    MessageBox.Show("Data berhasil dihapus");
+                    btnLoad_Click(null, null);
+                }
             }
             catch (Exception ex)
             {
