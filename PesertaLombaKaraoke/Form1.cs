@@ -180,7 +180,27 @@ namespace PesertaLombaKaraoke
         {
             try
             {
-                
+                dataGridView1.Rows.Clear();
+
+                string query = @"SELECT nomor_urut, nama_peserta, asal_daerah
+                         FROM tb_peserta
+                         WHERE nama_peserta LIKE @search";
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@search", "%" + txtSearch.Text + "%");
+
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    dataGridView1.Rows.Add(
+                        reader["nomor_urut"],
+                        reader["nama_peserta"],
+                        reader["asal_daerah"]
+                    );
+                }
+
+                reader.Close();
             }
             catch (Exception ex)
             {
