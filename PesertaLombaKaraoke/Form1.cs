@@ -209,7 +209,55 @@ namespace PesertaLombaKaraoke
         }
 
 
-       
+        private void LoadPanitia()
+        {
+            try
+            {
+                if (conn.State == ConnectionState.Closed)
+                    conn.Open();
+
+                SqlCommand cmd = new SqlCommand("SELECT nama_panitia FROM tb_panitia", conn);
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                cmbPanitia.Items.Clear();
+
+                while (reader.Read())
+                {
+                    cmbPanitia.Items.Add(reader["nama_panitia"].ToString());
+                }
+
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error panitia: " + ex.Message);
+            }
+        }
+
+        private void LoadKategori()
+        {
+            try
+            {
+                if (conn.State == ConnectionState.Closed)
+                    conn.Open();
+
+                SqlCommand cmd = new SqlCommand("SELECT nama_kategori FROM tb_kategori", conn);
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                cmbKategori.Items.Clear();
+
+                while (reader.Read())
+                {
+                    cmbKategori.Items.Add(reader["nama_kategori"].ToString());
+                }
+
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error kategori: " + ex.Message);
+            }
+        }
     }
 
 }
