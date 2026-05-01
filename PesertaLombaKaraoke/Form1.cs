@@ -39,6 +39,22 @@ namespace PesertaLombaKaraoke
         }
 
 
+        private void btnConnect_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (conn.State == ConnectionState.Closed)
+                    conn.Open();
+
+                MessageBox.Show("Koneksi berhasil!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Koneksi gagal: " + ex.Message);
+            }
+        }
+
+
     }
 
 }
