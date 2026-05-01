@@ -105,7 +105,13 @@ namespace PesertaLombaKaraoke
 
                 SqlCommand cmd = new SqlCommand(query, conn);
 
-                
+                cmd.Parameters.AddWithValue("@nomor", txtNomorUrut.Text);
+                cmd.Parameters.AddWithValue("@nama", txtNama.Text);
+                cmd.Parameters.AddWithValue("@asal", txtAsal.Text);
+                cmd.Parameters.AddWithValue("@kategori", cmbKategori.Text);
+                cmd.Parameters.AddWithValue("@panitia", cmbPanitia.Text);
+
+                cmd.ExecuteNonQuery();
 
                 MessageBox.Show("Data berhasil ditambahkan");
                 btnLoad_Click(null, null);
