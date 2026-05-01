@@ -126,7 +126,17 @@ namespace PesertaLombaKaraoke
         {
             try
             {
+                string query = @"UPDATE tb_peserta
+                        SET nama_peserta=@nama,
+                            asal_daerah=@asal
+                        WHERE nomor_urut=@nomor";
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+
                 
+
+                MessageBox.Show("Data berhasil diupdate");
+                btnLoad_Click(null, null);
             }
             catch (Exception ex)
             {
