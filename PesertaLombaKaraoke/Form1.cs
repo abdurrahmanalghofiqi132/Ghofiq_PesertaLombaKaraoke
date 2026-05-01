@@ -176,6 +176,20 @@ namespace PesertaLombaKaraoke
             }
         }
 
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+
+       
     }
 
 }
