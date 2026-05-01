@@ -96,7 +96,19 @@ namespace PesertaLombaKaraoke
         {
             try
             {
+                string query = @"INSERT INTO tb_peserta
+                        (nomor_urut, nama_peserta, asal_daerah, id_kategori, id_panitia)
+                        VALUES
+                        (@nomor, @nama, @asal,
+                        (SELECT id_kategori FROM tb_kategori WHERE nama_kategori=@kategori),
+                        (SELECT id_panitia FROM tb_panitia WHERE nama_panitia=@panitia))";
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+
                 
+
+                MessageBox.Show("Data berhasil ditambahkan");
+                btnLoad_Click(null, null);
             }
             catch (Exception ex)
             {
