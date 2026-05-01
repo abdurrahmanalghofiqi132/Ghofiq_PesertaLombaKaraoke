@@ -152,8 +152,12 @@ namespace PesertaLombaKaraoke
         {
             try
             {
+                DialogResult result = MessageBox.Show(
+                    "Yakin ingin hapus?",
+                    "Konfirmasi",
+                    MessageBoxButtons.YesNo);
+
                 
-                }
             }
             catch (Exception ex)
             {
