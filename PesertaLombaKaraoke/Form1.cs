@@ -25,7 +25,8 @@ namespace PesertaLombaKaraoke
             dataGridView1.ReadOnly = true;
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            
+            LoadKategori();
+            LoadPanitia();
         }
 
         private void label1_Click(object sender, EventArgs e)
