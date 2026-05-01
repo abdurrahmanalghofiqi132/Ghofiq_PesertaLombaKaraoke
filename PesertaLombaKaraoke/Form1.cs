@@ -133,7 +133,11 @@ namespace PesertaLombaKaraoke
 
                 SqlCommand cmd = new SqlCommand(query, conn);
 
-                
+                cmd.Parameters.AddWithValue("@nomor", txtNomorUrut.Text);
+                cmd.Parameters.AddWithValue("@nama", txtNama.Text);
+                cmd.Parameters.AddWithValue("@asal", txtAsal.Text);
+
+                cmd.ExecuteNonQuery();
 
                 MessageBox.Show("Data berhasil diupdate");
                 btnLoad_Click(null, null);
