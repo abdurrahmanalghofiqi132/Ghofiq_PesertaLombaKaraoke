@@ -67,7 +67,22 @@ namespace PesertaLombaKaraoke
                 dataGridView1.Columns.Add("asal_daerah", "Asal");
                 dataGridView1.Columns.Add("kategori", "Kategori");
 
-                
+                string query = @"SELECT p.nomor_urut, p.nama_peserta, p.asal_daerah, k.nama_kategori
+                         FROM tb_peserta p
+                         JOIN tb_kategori k ON p.id_kategori = k.id_kategori";
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    dataGridView1.Rows.Add(
+                        reader["nomor_urut"],
+                        reader["nama_peserta"],
+                        reader["asal_daerah"],
+                        reader["nama_kategori"]
+                    );
+                }
 
                 reader.Close();
             }
