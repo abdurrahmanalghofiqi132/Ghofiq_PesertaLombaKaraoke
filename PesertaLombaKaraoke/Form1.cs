@@ -55,6 +55,28 @@ namespace PesertaLombaKaraoke
         }
 
 
+        private void btnLoad_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                dataGridView1.Rows.Clear();
+                dataGridView1.Columns.Clear();
+
+                dataGridView1.Columns.Add("nomor_urut", "Nomor");
+                dataGridView1.Columns.Add("nama_peserta", "Nama");
+                dataGridView1.Columns.Add("asal_daerah", "Asal");
+                dataGridView1.Columns.Add("kategori", "Kategori");
+
+                
+
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
     }
 
 }
